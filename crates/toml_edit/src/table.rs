@@ -195,6 +195,11 @@ impl Table {
         self.doc_position = Some(doc_position);
     }
 
+    /// Removes the position of the `Table` within the `Document`.
+    pub fn remove_position(&mut self) {
+        self.doc_position = None;
+    }
+
     /// The position of the `Table` within the `Document`.
     ///
     /// Returns `None` if the `Table` was created manually (i.e. not via parsing)
