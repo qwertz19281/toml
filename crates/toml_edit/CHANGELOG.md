@@ -7,6 +7,52 @@ The format is based on [Keep a Changelog].
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.19.15] - 2023-09-08
+
+### Fixes
+
+- *(ser)* Error rather than drop whole arrays when a single element is `None`
+
+## [0.19.14] - 2023-07-14
+
+### Performance
+
+- Small binary size reduction
+
+## [0.19.13] - 2023-07-13
+
+### Performance
+
+- Improved parse times
+
+## [0.19.12] - 2023-07-05
+
+### Features
+
+- Add `Array::retain`, `ArrayOfTables::retain`, `InlineTable::retain`, `Table::retain`
+
+## [0.19.11] - 2023-06-24
+
+### Internal
+
+- Update `indexmap`
+
+## [0.19.10] - 2023-05-23
+
+### Fixes
+
+- Correctly render `Key`s in documents when they come from `Key::from_str`
+
+## [0.19.9] - 2023-05-18
+
+### Features
+
+- *(ser)* Newtype variant support
+
+### Compatibility
+
+MSRV is now 1.64.0
+
 ## [0.19.8] - 2023-03-18
 
 ### Internal
@@ -84,7 +130,7 @@ Breaking changes
 - Renamed `toml_edit::ser::Serializer` in favor of `toml_edit::ser::ValueSerializer`
 - Make `Key` only comparable by the value, not repr or decor
 - More consistently accept `InternalString`
-- `Repr`, `Decor`, and `Formatted` are no longer guarenteed to hold strings for easy comparison / evaluatoon
+- `Repr`, `Decor`, and `Formatted` are no longer guaranteed to hold strings for easy comparison / evaluatoon
 - `Key`, `KeyMut`, `Formatted` no longer have `to_repr`, replaced by `display_repr`, see also `as_repr`, `default_repr`
 
 Deprecations
@@ -136,7 +182,7 @@ Deprecations
 
 ### Fixes
 
-- Prevent stackoverflows with a recusion limit.  Disable with `unbounded` feature flag
+- Prevent stackoverflows with a recursion limit.  Disable with `unbounded` feature flag
 
 ## [0.16.0] - 2022-12-23
 
@@ -486,7 +532,14 @@ This release was sponsored by Futurewei
 - `array.push` now returns a `Result`.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/toml-rs/toml/compare/v0.19.8...HEAD
+[Unreleased]: https://github.com/toml-rs/toml/compare/v0.19.15...HEAD
+[0.19.15]: https://github.com/toml-rs/toml/compare/v0.19.14...v0.19.15
+[0.19.14]: https://github.com/toml-rs/toml/compare/v0.19.13...v0.19.14
+[0.19.13]: https://github.com/toml-rs/toml/compare/v0.19.12...v0.19.13
+[0.19.12]: https://github.com/toml-rs/toml/compare/v0.19.11...v0.19.12
+[0.19.11]: https://github.com/toml-rs/toml/compare/v0.19.10...v0.19.11
+[0.19.10]: https://github.com/toml-rs/toml/compare/v0.19.9...v0.19.10
+[0.19.9]: https://github.com/toml-rs/toml/compare/v0.19.8...v0.19.9
 [0.19.8]: https://github.com/toml-rs/toml/compare/v0.19.7...v0.19.8
 [0.19.7]: https://github.com/toml-rs/toml/compare/v0.19.6...v0.19.7
 [0.19.6]: https://github.com/toml-rs/toml/compare/v0.19.5...v0.19.6

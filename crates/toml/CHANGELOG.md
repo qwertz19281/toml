@@ -7,6 +7,34 @@ The format is based on [Keep a Changelog].
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.7.7] - 2023-09-08
+
+### Fixes
+
+- *(ser)* Error rather than drop whole arrays when a single element is `None`
+
+## [0.7.6] - 2023-07-05
+
+### Features
+
+- Add `Map::retain`
+
+## [0.7.5] - 2023-06-24
+
+### Internal
+
+- Update `indexmap`
+
+## [0.7.4] - 2023-05-18
+
+### Features
+
+- *(ser)* Newtype variant support
+
+### Compatibility
+
+MSRV is now 1.64.0
+
 ## [0.7.3] - 2023-03-08
 
 ### Fixes
@@ -112,7 +140,11 @@ Changes:
 Minor doc fix (#409)
 
 <!-- next-url -->
-[Unreleased]: https://github.com/toml-rs/toml/compare/toml-v0.7.3...HEAD
+[Unreleased]: https://github.com/toml-rs/toml/compare/toml-v0.7.7...HEAD
+[0.7.7]: https://github.com/toml-rs/toml/compare/toml-v0.7.6...toml-v0.7.7
+[0.7.6]: https://github.com/toml-rs/toml/compare/toml-v0.7.5...toml-v0.7.6
+[0.7.5]: https://github.com/toml-rs/toml/compare/toml-v0.7.4...toml-v0.7.5
+[0.7.4]: https://github.com/toml-rs/toml/compare/toml-v0.7.3...toml-v0.7.4
 [0.7.3]: https://github.com/toml-rs/toml/compare/toml-v0.7.2...toml-v0.7.3
 [0.7.2]: https://github.com/toml-rs/toml/compare/toml-v0.7.1...toml-v0.7.2
 [0.7.1]: https://github.com/toml-rs/toml/compare/toml-v0.7.0...toml-v0.7.1

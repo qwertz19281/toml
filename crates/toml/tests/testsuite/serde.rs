@@ -613,6 +613,28 @@ fn newtypes2() {
     }
 }
 
+#[test]
+fn newtype_variant() {
+    #[derive(Copy, Clone, Debug, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+    struct Struct {
+        field: Enum,
+    }
+
+    #[derive(Copy, Clone, Debug, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+    enum Enum {
+        Variant(u8),
+    }
+
+    equivalent! {
+        Struct { field: Enum::Variant(21) },
+        map! {
+            field: map! {
+                Variant: Value::Integer(21)
+            }
+        },
+    }
+}
+
 #[derive(Debug, Default, PartialEq, Serialize, Deserialize)]
 struct CanBeEmpty {
     a: Option<String>,
@@ -1071,4 +1093,25 @@ fn datetime_offset_issue_496() {
     let toml = original.parse::<toml::Table>().unwrap();
     let output = toml.to_string();
     snapbox::assert_eq(original, output);
+}
+
+#[test]
+fn serialize_array_with_none_value() {
+    #[derive(Serialize)]
+    struct Document {
+        values: Vec<Option<usize>>,
+    }
+
+    let input = Document {
+        values: vec![Some(1), Some(2), Some(3)],
+    };
+    let expected = "values = [1, 2, 3]\n";
+    let raw = toml::to_string(&input).unwrap();
+    snapbox::assert_eq(expected, raw);
+
+    let input = Document {
+        values: vec![Some(1), None, Some(3)],
+    };
+    let err = toml::to_string(&input).unwrap_err();
+    snapbox::assert_eq("unsupported None value", err.to_string());
 }
